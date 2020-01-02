@@ -67,6 +67,14 @@ app.get('*',(req, res) => {
     })
 })
 
-app.listen(3000, ()=>{
-    console.log('Server is up on port 3000.')
+// for local host
+// app.listen(3000, ()=>{
+//     console.log('Server is up on port 3000.')
+// })
+
+//the first one is for heroku, if it fails use 3000 on local host
+const port = process.env.PORT || 3000
+
+app.listen(port, ()=>{
+    console.log('Server is up on port' + port)
 })
